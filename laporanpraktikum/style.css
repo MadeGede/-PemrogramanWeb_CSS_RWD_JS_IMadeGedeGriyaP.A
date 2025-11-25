@@ -1,0 +1,70 @@
+:root{
+font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+background: var(--bg);
+color: var(--text);
+transition: all .35s ease;
+}
+body{
+    background-color: #2e7d32;
+}
+.container{ max-width:1000px; margin:20px auto; padding:16px; }
+.header h1{ margin:0; }
+.nim{ margin-top:6px; opacity:.9 }
+
+
+/* Issues layout */
+.issues{ margin-top:18px; }
+.issue{ margin-bottom:14px; padding:10px; border-radius:10px; background:var(--card-bg); box-shadow:0 2px 6px rgba(0,0,0,.06); }
+.title{ margin:0 0 8px 0; cursor:pointer; padding:6px; border-radius:6px; }
+.title:hover{ background: rgba(0,0,0,0.04); }
+.desc{ margin:0; }
+
+
+.controls{ margin-top:18px; display:flex; gap:12px; }
+.controls button{ padding:10px 14px; border-radius:8px; border:2px solid var(--theme); background:transparent; cursor:pointer; font-weight:600; }
+.controls button:hover{ background: rgba(255,255,255,0.3); }
+
+
+.footer{ margin-top:32px; text-align:center; opacity:.9 }
+
+
+/* Theme class untuk hijau */
+.theme-hijau{ --theme:#2e7d32; --bg:#0000; --card-bg:#1c571f; }
+
+
+
+/* MODE BERANTAKAN - perpaduan warna & kontras buruk */
+body.mode-berantakan{
+--bg: #ffd9b3; 
+--text: #330033; 
+--theme: #ff0066; 
+--card-bg: #ffff80;
+filter: saturate(1.2) contrast(1.1);
+}
+
+
+body.mode-berantakan .title{ background: linear-gradient(90deg,var(--theme),#ffcc00); color:#000; }
+
+
+/* Gambar page */
+.images-page .gallery{ display:grid; gap:16px; }
+.card{ background:var(--card-bg); padding:8px; border-radius:10px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,.08); text-align:center; }
+.card img{ width:100%; height:200px; object-fit:cover; display:block; border-radius:8px; }
+.card p{ margin:8px 0 0 0; font-weight:600; }
+
+
+/* Responsif grid rules */
+@media (max-width:600px){ /* Mobile */
+.images-page .gallery{ grid-template-columns: 1fr; }
+}
+@media (min-width:601px) and (max-width:991px){ /* Tablet */
+.images-page .gallery{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width:992px){ /* Desktop */
+.images-page .gallery{ grid-template-columns: repeat(3, 1fr); }
+}
+
+
+/* Accessibilty small tweaks */
+.title{ font-size:1.05rem; }
+.desc{ font-size:0.95rem; }
